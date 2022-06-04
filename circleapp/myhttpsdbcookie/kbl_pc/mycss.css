@@ -1,0 +1,381 @@
+
+/* 闪屏背景图 */
+.mySplash {
+    background-image: url("picture/splash.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+/* 启动时隐藏全局元素 */
+.globalUI {
+	display: none;
+}
+
+/* 页面背景图 */
+.ui-panel-wrapper0 {
+background-color:#ffffff;
+}
+
+
+.ui-panel-wrapper1 {
+    background-image: url("picture/bg1.png");
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.ui-panel-wrapper2 {
+    background-image: url("picture/bg2.png");
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+
+
+
+
+/* 普通图片、声音、视频的宽度100% */
+img, audio, video {
+    width: 100%;
+}
+
+/* 分列布局图片宽度 */
+.ui-grid-b img {
+    width: 95%;
+}
+
+/* 自定义的导航栏图标 */
+.ui-icon-myicon1:after {
+    background-image: url("picture/i1.png"); /* 你的图标，PNG格式。*/
+    background-size: 22px 22px;
+}
+
+.ui-icon-myicon2:after {
+    background-image: url("picture/i2.png"); /* 你的图标，PNG格式。*/
+    background-size: 22px 22px; /* 图标尺寸 */
+     /* 图标形态，0=方形，不设置就是默认的圆形 */
+}
+.ui-icon-myicon3:after {
+    background-image: url("picture/i3.png"); /* 你的图标，PNG格式。*/
+    background-size: 22px 22px; /* 图标尺寸 */
+    /* 图标形态，0=方形，不设置就是默认的圆形 */
+}
+
+.ui-icon-myicon4:after {
+    background-image: url("picture/i4.png"); /* 你的图标，PNG格式。*/
+    background-size: 22px 22px; /* 图标尺寸 */
+    /* 图标形态，0=方形，不设置就是默认的圆形 */
+}
+
+.ui-icon-myicon5:after {
+    background-image: url("picture/i5.png"); /* 你的图标，PNG格式。*/
+    background-size: 22px 22px; /* 图标尺寸 */
+    /* 图标形态，0=方形，不设置就是默认的圆形 */
+}
+
+
+
+
+
+
+/* 工具栏顶部配色 */
+.ui-bar-a {
+    background-color: #e3650c !important;
+    border-color:#ffffff !important;
+    color: #ffffff !important;
+    /*text-shadow: 0 1px 0 #eee !important;*/
+}
+
+/* 按钮配色 */
+.ui-btn, .ui-btn-a, .ui-btn:visited {
+    background-color: #1fa4b1 !important ;/*底部背景颜色*/
+    border-color: #ffffff ;
+    color: #1fa4b1 ; /*底部导航栏字的颜色 */
+
+    font-size:20px;
+
+}
+.passage5-div1 {
+    width: 90px;
+    height:90px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    left:0;
+    right:0;
+    }
+
+.passage5 {
+    font-size:15px;
+}
+
+.passage5-div-image{
+    width:60px;
+    height:auto;
+}
+
+.passage5-div-buttom1 {
+    width: auto;
+    height: 100px;
+    display: inline-block;
+    position: absolute;
+}
+
+
+
+
+
+.passage3-table {
+    border:1px;
+    width:340px;
+    height:50px;
+    border: solid #1fa4b1;
+    border-width: 5px;
+    text-align: center;
+}
+
+.passage3-table1 {
+    
+    width: 340px;
+    height: 50px;
+    border: solid #1fa4b1;
+    border-width: 5px;
+    text-align: center;
+}
+
+.passage3-table2 {
+
+    width: 340px;
+    height: 45px;
+    border: solid #1fa4b1;
+    border-width: 1.5px; 
+    border-color:#f5751b;
+    text-align: center;
+}
+
+.passage4-table1 {
+    width: 340px;
+    height: 20px;
+    border: solid #1fa4b1;
+    border-width: 4px;
+    border-color: #f67d34;
+    text-align: center;
+}
+
+.passage4-table2 {
+    width: 340px;
+    height: 20px;
+    border: solid #1fa4b1;
+    border-width: 4px;
+    border-color: #0e4d90;
+    text-align: center;
+
+}
+
+
+passage1-list{
+    background-color:antiquewhite;
+}
+
+
+.search {
+    width: 100%;
+    margin:  auto;
+    display: flex;
+}
+
+    .search input {
+        height: 50px;
+        border: 1px ;
+        width:250px;
+    }
+
+    .search button {
+        float: right;
+        flex: 1;
+    }
+
+   .search button i {
+            font-style: normal;
+        }
+
+   .search button:hover {
+            font-size: 16px;
+        }
+
+
+.panel {
+    width :30px;
+    height:30px;
+}
+
+.panel-font {
+    font-size: 20px;
+    font-style:initial;
+    color:#1fa4b1;
+}
+
+
+/*登录界面*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: #fff url() 50% 50% no-repeat;
+    background-size: cover;
+}
+
+.dowebok {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 430px;
+    height: 550px;
+    margin: -300px 0 0 -215px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.logo {
+    width: 104px;
+    height: 104px;
+    margin: 50px auto 80px;
+    background: url(picture/log.png) 0 0 no-repeat;
+}
+
+.form-item {
+    position: relative;
+    width: 360px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+    .form-item input {
+        width: 288px;
+        height: 48px;
+        padding-left: 70px;
+        border: 1px solid #fff;
+        border-radius: 25px;
+        font-size: 18px;
+        color: #fff;
+        background-color: transparent;
+        outline: none;
+    }
+
+    .form-item button {
+        width: 360px;
+        height: 50px;
+        border: 0;
+        border-radius: 25px;
+        font-size: 18px;
+        color: #1f6f4a;
+        outline: none;
+        cursor: pointer;
+        background-color: #fff;
+    }
+/*用户名，密码*/
+#username {
+    background: url(picture/i6.png) 20px 14px no-repeat;
+}
+
+#password {
+    background: url(picture/i7.png) 23px 11px no-repeat;
+}
+
+.tip {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 52px;
+    font-size: 14px;
+    color: #f50;
+}
+
+.reg-bar {
+    width: 360px;
+    margin: 20px auto 0;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+    .reg-bar a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .reg-bar a:hover {
+            text-decoration: underline;
+        }
+
+    .reg-bar .reg {
+        float: left;
+    }
+
+    .reg-bar .forget {
+        float: right;
+    }
+
+.dowebok ::-webkit-input-placeholder {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.dowebok :-moz-placeholder {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.dowebok ::-moz-placeholder {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.dowebok :-ms-input-placeholder {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff;
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .dowebok {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0 30px;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .logo {
+        margin: 50px auto;
+    }
+
+    .form-item {
+        width: auto;
+    }
+
+        .form-item input, .form-item button, .reg-bar {
+            width: 100%;
+        }
+}

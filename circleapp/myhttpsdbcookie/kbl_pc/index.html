@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- APP标题，必须修改。 -->
+    <title>Circle课表</title>
+    <!-- 以下是标准库，不能修改。 -->
+
+    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- cookie库。 -->
+    <script type="text/javascript" src="js.cookie.js"></script>
+    <!-- 以上是标准库，不能修改。 -->
+    <!--Timer库-->
+    <script src="jquery.timer.js"></script>
+    <!--自己的CSS-->
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <!-- 自动停止播放 -->
+    <script src="autostop.js"></script>
+    <!-- 主程序 -->
+    <script src="myapp.js"></script>
+    <!-- 让全局导航按钮高亮的库 -->
+    <script src="navbar.js"></script>
+    <!--表格显示数据库  -->
+    <script src="myjs.js"></script>
+    <!--倒计时  -->
+    <script src="alarm.js"></script>
+
+    <!-- 引入百度地图API，ak是开发者账号里创建GPS应用后生成的密钥。 -->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=pKCdGpIS6DVtPyRjp7tWS4QhUvgohwtm"></script>
+    <!-- 自己的CSS -->
+    <link rel="stylesheet" href="map.css">
+    <!-- 自己的JS -->
+    <script type="text/javascript" src="map6.js"></script>>
+
+    <!--登录注销-->
+    <script src="login.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 全局头部工具栏开头 -->
+    <div id="myHeader" data-role="header" data-position="fixed" data-theme="a" class="globalUI">
+        <a href="#myPanel1" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-notext">信息</a>
+        <h1>Circlr</h1>
+        <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">课表</a>
+    </div>
+    <!-- 全局头部工具栏结尾 -->
+
+    <!-- 全局脚部导航栏开头 -->
+    <div id="myFooter" data-role="footer" data-position="fixed" data-theme="a" class="globalUI">
+        <div data-role="navbar" data-position="fixed" data-theme="a">
+            <ul>
+                <li>
+                    <a href="#page1" class="ui-btn ui-btn-icon-top ui-icon-myicon1">图书馆</a>
+                </li>
+                <li>
+                    <a href="#page2" class="ui-btn ui-btn-icon-top ui-icon-myicon2">番茄</a>
+                </li>
+                <li>
+                    <a href="#page3" class="ui-btn ui-btn-icon-top ui-icon-myicon3">课表</a>
+                </li>
+                <li>
+                    <a href="#page4" class="ui-btn ui-btn-icon-top ui-icon-myicon4">GPA</a>
+                </li>
+                <li>
+                    <a href="#page5" class="ui-btn ui-btn-icon-top ui-icon-myicon5">我</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 全局脚部导航栏结尾 -->
+
+    <!-- 左侧边面板开头 -->
+    <div id="myPanel1" data-role="panel" data-theme="a" class="ui-panel-wrapper0">
+        <div data-role="main">
+
+            <h3>关于软件</h3>
+            <ul data-role="listview">
+                <li class="panel-font"><img src="picture/up.png" class="panel">版本1.0.1</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧边面板结尾 -->
+
+    <!-- 全局图片弹窗开始 -->
+    <div data-role="popup" id="myImgPopup">
+        <a data-rel="back"
+           class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <img id="popupWinImg" src="#">
+    </div>
+    <!-- 全局图片弹窗结尾 -->
+
+    <!-- Splash页开始 -->
+    <div data-role="page" data-fullscreen="true" id="page0" class="mySplash">
+
+        <div data-role="main" class="ui-content">
+
+            <button id="skipButton" data-role="button" data-inline="true">跳过 <span id="mySecond"></span></button>
+
+        </div>
+
+    </div>
+    <!-- Splash页结束 -->
+
+    <!-- page1开头 -->
+    <div data-role="page" id="page1" class="ui-panel-wrapper0">
+        <!-- 主内容开头 -->
+
+
+
+        <div data-role="main" class="ui-content">
+            <button id="myNavButton">导航</button>
+            <div id="myMap"></div>
+            <div id="myInfo"></div>
+
+            <div id="myInfo"></div>
+        </div>
+
+
+
+
+
+
+        <!-- 主内容结尾 -->
+
+
+    </div>
+    <!-- page1结尾 -->
+
+    <!-- page2开头 -->
+    <div data-role="page" id="page2" class="ui-panel-wrapper0">
+
+        <!-- 主内容开头 -->
+        <div data-role="main">
+
+
+            <h2 style="text-align:center">番茄钟</h2>
+            <div>
+                Min:<input type="text" id="hour" value="25">
+                Sec:<input type="text" id="min" value="59">
+                <br />
+
+                <input type="button" id="btnStart" value="开始">
+                <input type="button" id="btnPause" value="暂停">
+                <input type="button" id="btnCancel" value="取消">
+            </div>
+
+
+            <br />
+            <h3>选择你想要的白噪音:</h3>
+            <div data-role="tabs" id="myTabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#music1" data-ajax="false">
+                                <div>Happy Memories</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#music2" data-ajax="false">
+                                <div>松田光由 - shasou</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#music3" data-ajax="false">
+                                <div>Echoes of Nature - Showers</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div id="music1">
+                    <audio controls loop>
+                        <source src="影音/happy.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div id="music2">
+                    <audio controls loop>
+                        <source src="影音/songtian.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div id="music3">
+                    <audio controls loop>
+                        <source src="影音/Echoes of Nature - Showers.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page2结尾 -->
+
+    <!-- page3开头 -->
+    <div data-role="page" id="page3" class="ui-panel-wrapper0">
+
+        <!-- 主内容开头 -->
+        <div data-role="main">
+
+            <!--选择表单开始-->
+            <form method="post" action="demoform.asp" class="ui-content">
+                <fieldset data-role="fieldcontain">
+
+                    <select>
+                        <option value="1">第1周</option>
+                        <option value="2">第2周</option>
+                        <option value="1">第3周</option>
+                        <option value="2">第4周</option>
+                        <option value="1">第5周</option>
+                        <option value="2">第6周</option>
+                        <option value="1">第7周</option>
+                        <option value="1">第8周</option>
+                        <option value="2">第9周</option>
+                        <option value="1">第10周</option>
+                        <option value="2">第11周</option>
+                        <option value="1">第12周</option>
+                        <option value="2">第13周</option>
+                        <option value="1">第14周</option>
+                        <option value="2">第15周</option>
+                        <option value="1">第16周</option>
+                        <option value="2">第17周</option>
+                        <option value="2">第18周</option>
+
+                    </select>
+                </fieldset>
+            </form>
+            <!--选择表单结束-->
+            <!--表格开始-->
+            <div data-role="main">
+                <table>
+                    <tr>
+                        <th class="passage3-table"> </th>
+                        <th class="passage3-table">周一</th>
+                        <th class="passage3-table">周二</th>
+                        <th class="passage3-table">周三</th>
+                        <th class="passage3-table">周四</th>
+                        <th class="passage3-table">周五</th>
+                        <th class="passage3-table">周六</th>
+                        <th class="passage3-table">周日</th>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">1</td>
+                        <td class="passage3-table2" contentEditable="true">体育</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">英语</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">2</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">毛概</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">大学国文</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">3</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">形势与政策</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">4</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">高数</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">5</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true">离散数学</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">6</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">7</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">8</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">9</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="passage3-table1">10</td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contentEditable="true"></td>
+                    </tr>
+
+                </table>
+                <!--表格结束-->
+            </div>
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page3结尾 -->
+
+    <!-- page4开头 -->
+    <div data-role="page" id="page4" class="ui-panel-wrapper0">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+
+            <h2>我的成绩：</h2>
+            <table id="myTable1" data-role="table" class="ui-responsive">
+                <thead>
+                    <tr>
+                        <th>课程名称</th>
+                        <th>学分</th>
+                        <th>成绩</th>
+                        <th>绩点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <button id="myButton3">获取成绩</button>
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page4结尾 -->
+
+    <!-- page5开头 -->
+    <div data-role="page" id="page5" class="ui-panel-wrapper1">
+
+        <!-- 主内容开头 -->
+        <div>
+            <br />
+            <div data-role="main" class="passage5-div1">
+                <img src="picture/头像.jpg" />
+            </div>
+
+            <br><br><br><br><br><br />
+            <h2 style="text-align:center">个人信息</h2>
+
+            <div class="dowebok">
+                学号：
+                <input type="text" id="学号" value="20181120063">
+                <span>姓名：</span>
+                <input type="text" id="姓名" value="何欣珏" style="width:20%">
+                <span>学院：</span>
+                <input type="text" id="学院" value="软件学院">
+                <span>专业：</span>
+                <input type="text" id="专业" value="数字媒体技术">
+                <span>个性签名：</span>
+                <input type="text" id="个性签名" value="╰( ´・ω・)つ──☆✿✿✿">
+                <span>♥兴趣爱好：</span>
+                <input type="text" id="兴趣爱好" value="打羽毛球，峡谷抢河怪">
+                <br>
+            </div>
+
+            <h2 style="text-align:center">我的学习动态</h2>
+            <br>
+            <video controls>
+                <source src="影音/1.mp4" type="video/mp4">
+                <br>
+            </video>
+            <br><br>
+            <div class="passage5-div-image">
+                <img src="picture/底部兔子.png" />
+
+                <div class="passage5-div-buttom1">
+                    <button id="myButton2">注销</button>
+                </div>
+
+            </div>
+            <!-- 主内容结尾 -->
+        </div>
+
+
+        <!-- page5结尾 -->
+    </div>
+
+    <!--page6开头-->
+    <div data-role="page" id="page6" class="ui-panel-wrapper0">
+        <!--主要内容开头-->
+        <div data-role="main" class="ui-content">
+
+            <div id="myText1"></div>
+           
+
+            <form id="myForm1">
+
+                <label for="用户名">用户名：</label>
+                <input id="myInput1" type="text" name="用户名"><!--hexinjue-->
+
+                <label for="密码">密码：</label>
+                <input id="myInput2" type="password" name="密码"><!--20181120063-->
+                <div style="text-align:center">
+                    <input id="myButton1" type="submit" data-inline="true" value="登录">
+                    <input id="myButton4" type="submit" data-inline="true" value="注册">
+                </div>
+
+
+            </form>
+
+
+        </div>
+        
+   
+        <!--主要内容结尾-->
+    </div>
+    <!--page6结尾-->
+
+</body>
+
+</html>

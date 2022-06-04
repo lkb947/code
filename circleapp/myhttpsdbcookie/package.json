@@ -1,0 +1,11 @@
+{
+  "name": "myhttps",
+  "version": "1.0.0",
+  "description": "MyHTTPS",
+  "dependencies": {
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "mongodb": "^3.5.8"
+  },
+  "engine": "node >=0.6.x"
+}
