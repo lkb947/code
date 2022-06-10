@@ -11,8 +11,8 @@ def bubble_sort(arr):
     return arr
 
 
-arr = [1, 2, 3, 4, 5, 6, 110, 7, 8, 9, 10]
-print(bubble_sort(arr))
+# arr = [1, 2, 3, 4, 5, 6, 110, 7, 8, 9, 10]
+# print(bubble_sort(arr))
 
 
 # 快速排序
