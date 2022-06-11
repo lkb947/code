@@ -7,7 +7,6 @@
     <!-- APP标题，必须修改。 -->
     <title>Circle课表</title>
     <!-- 以下是标准库，不能修改。 -->
-
     <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -30,11 +29,12 @@
     <script src="alarm.js"></script>
 
     <!-- 引入百度地图API，ak是开发者账号里创建GPS应用后生成的密钥。 -->
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=pKCdGpIS6DVtPyRjp7tWS4QhUvgohwtm"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=pKCdGpIS6DVtPyRjp7tWS4QhUvgohwtm">
+    </script>
     <!-- 自己的CSS -->
     <link rel="stylesheet" href="map.css">
     <!-- 自己的JS -->
-    <script type="text/javascript" src="map6.js"></script>>
+    <script type="text/javascript" src="map6.js"></script>
 
     <!--登录注销-->
     <script src="login.js"></script>
@@ -59,7 +59,7 @@
                     <a href="#page1" class="ui-btn ui-btn-icon-top ui-icon-myicon1">图书馆</a>
                 </li>
                 <li>
-                    <a href="#page2" class="ui-btn ui-btn-icon-top ui-icon-myicon2">番茄</a>
+                    <a href="#page2" class="ui-btn ui-btn-icon-top ui-icon-myicon2">番茄钟</a>
                 </li>
                 <li>
                     <a href="#page3" class="ui-btn ui-btn-icon-top ui-icon-myicon3">课表</a>
@@ -81,7 +81,7 @@
 
             <h3>关于软件</h3>
             <ul data-role="listview">
-                <li class="panel-font"><img src="picture/up.png" class="panel">版本1.0.1</li>
+                <li class="panel-font"><img src="picture/up.png" class="panel">版本1.0.1 kblPC所有</li>
             </ul>
         </div>
     </div>
@@ -90,20 +90,16 @@
     <!-- 全局图片弹窗开始 -->
     <div data-role="popup" id="myImgPopup">
         <a data-rel="back"
-           class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <img id="popupWinImg" src="#">
     </div>
     <!-- 全局图片弹窗结尾 -->
 
     <!-- Splash页开始 -->
     <div data-role="page" data-fullscreen="true" id="page0" class="mySplash">
-
         <div data-role="main" class="ui-content">
-
             <button id="skipButton" data-role="button" data-inline="true">跳过 <span id="mySecond"></span></button>
-
         </div>
-
     </div>
     <!-- Splash页结束 -->
 
@@ -118,20 +114,11 @@
             <div id="myMap"></div>
             <div id="myInfo"></div>
 
-            <div id="myInfo"></div>
+            <!-- <div id="myInfo"></div> -->
         </div>
-
-
-
-
-
-
         <!-- 主内容结尾 -->
-
-
     </div>
     <!-- page1结尾 -->
-
     <!-- page2开头 -->
     <div data-role="page" id="page2" class="ui-panel-wrapper0">
 
@@ -149,8 +136,6 @@
                 <input type="button" id="btnPause" value="暂停">
                 <input type="button" id="btnCancel" value="取消">
             </div>
-
-
             <br />
             <h3>选择你想要的白噪音:</h3>
             <div data-role="tabs" id="myTabs">
@@ -191,8 +176,6 @@
                 </div>
 
             </div>
-
-
         </div>
         <!-- 主内容结尾 -->
 
@@ -228,7 +211,6 @@
                         <option value="1">第16周</option>
                         <option value="2">第17周</option>
                         <option value="2">第18周</option>
-
                     </select>
                 </fieldset>
             </form>
@@ -248,106 +230,105 @@
                     </tr>
                     <tr>
                         <td class="passage3-table1">1</td>
-                        <td class="passage3-table2" contentEditable="true">体育</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">英语</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">体育</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">英语</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
 
                     </tr>
                     <tr>
                         <td class="passage3-table1">2</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">毛概</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">大学国文</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">毛概</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">大学国文</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">3</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">形势与政策</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">形势与政策</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">4</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">高数</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">高数</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">5</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true">离散数学</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true">离散数学</td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">6</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">7</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">8</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">9</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
                     <tr>
                         <td class="passage3-table1">10</td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
-                        <td class="passage3-table2" contentEditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
+                        <td class="passage3-table2" contenteditable="true"></td>
                     </tr>
-
                 </table>
                 <!--表格结束-->
             </div>
@@ -362,7 +343,6 @@
 
         <!-- 主内容开头 -->
         <div data-role="main" class="ui-content">
-
             <h2>我的成绩：</h2>
             <table id="myTable1" data-role="table" class="ui-responsive">
                 <thead>
@@ -400,13 +380,13 @@
 
             <div class="dowebok">
                 学号：
-                <input type="text" id="学号" value="20181120063">
+                <input type="text" id="学号" value="20191120167">
                 <span>姓名：</span>
-                <input type="text" id="姓名" value="何欣珏" style="width:20%">
+                <input type="text" id="姓名" value="李克波" style="width:20%">
                 <span>学院：</span>
                 <input type="text" id="学院" value="软件学院">
                 <span>专业：</span>
-                <input type="text" id="专业" value="数字媒体技术">
+                <input type="text" id="专业" value="软件工程">
                 <span>个性签名：</span>
                 <input type="text" id="个性签名" value="╰( ´・ω・)つ──☆✿✿✿">
                 <span>♥兴趣爱好：</span>
@@ -431,42 +411,29 @@
             </div>
             <!-- 主内容结尾 -->
         </div>
-
-
         <!-- page5结尾 -->
     </div>
-
     <!--page6开头-->
     <div data-role="page" id="page6" class="ui-panel-wrapper0">
         <!--主要内容开头-->
         <div data-role="main" class="ui-content">
-
             <div id="myText1"></div>
-           
-
             <form id="myForm1">
-
                 <label for="用户名">用户名：</label>
-                <input id="myInput1" type="text" name="用户名"><!--hexinjue-->
-
+                <input id="myInput1" type="text" name="用户名">
+                <!--hexinjue-->
                 <label for="密码">密码：</label>
-                <input id="myInput2" type="password" name="密码"><!--20181120063-->
+                <input id="myInput2" type="password" name="密码">
+                <!--20181120063-->
                 <div style="text-align:center">
                     <input id="myButton1" type="submit" data-inline="true" value="登录">
                     <input id="myButton4" type="submit" data-inline="true" value="注册">
                 </div>
-
-
             </form>
-
-
         </div>
-        
-   
         <!--主要内容结尾-->
     </div>
     <!--page6结尾-->
-
 </body>
 
 </html>

@@ -1,0 +1,60 @@
+
+/* 闪屏背景图 */
+.mySplash {
+    background-image: url("mysplash.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+/* 启动时隐藏全局元素 */
+.globalUI {
+	display: none;
+}
+
+/* 页面背景图 */
+.ui-panel-wrapper {
+    background-image: url("mybackground.jpg") !important;
+}
+
+/* 普通图片、声音、视频的宽度100% */
+img, audio, video {
+    width: 100%;
+}
+
+/* 分列布局图片宽度 */
+.ui-grid-b img {
+    width: 95%;
+}
+
+/* 自定义的导航栏图标 */
+.ui-icon-myicon:after {
+    background-image: url("cxk.png");  /* 你的图标，PNG格式。*/
+    background-size: 18px 18px; /* 图标尺寸 */
+    border-radius: 0; /* 图标形态，0=方形，不设置就是默认的圆形 */
+}
+
+/* 页面背景配色 */
+.page-theme-a, .ui-page-theme-a, .ui-panel-wrapper {
+    background-color: #96fbc0 !important; /* 背景颜色 */
+    border-color: #bbb !important; /* 边线颜色 */
+    color: #333 !important; /* 文字颜色 */
+    text-shadow: 0 1px 0 #f3f3f3 !important; /* 文字阴影 */
+}
+
+
+/* 工具栏配色 */
+.ui-bar-a {
+    background-color: #bdffb6 !important;
+    border-color: #ddd !important;
+    color: #333 !important;
+    text-shadow: 0 1px 0 #eee !important;
+}
+
+/* 按钮配色 */
+.ui-btn, .ui-btn-a, .ui-btn:visited {
+    background-color: #73ca81 !important;
+    border-color: #ddd !important;
+    color: #333 !important;
+    text-shadow: 0 1px 0 #f3f3f3 !important;
+}

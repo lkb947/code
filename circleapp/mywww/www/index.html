@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- APP标题，必须修改。 -->
+    <title>MyAPP</title>
+    <!-- 以下是标准库，不能修改。 -->
+    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- 以上是标准库，不能修改。 -->
+    <!--Timer库-->
+    <script src="jquery.timer.js"></script>
+    <!--自己的CSS-->
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+    <!-- 自动停止播放 -->
+    <script src="autostop.js"></script>
+    <!-- 主程序 -->
+    <script src="myapp.js"></script>
+    <!-- 让全局导航按钮高亮的库 -->
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+
+    <!-- 全局头部工具栏开头 -->
+    <div id="myHeader" data-role="header" data-position="fixed" data-theme="a" class="globalUI">
+        <a href="#myPanel1" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">关于</a>
+        <h1>MyAPP</h1>
+        <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">首页</a>
+    </div>
+    <!-- 全局头部工具栏结尾 -->
+
+
+    <!-- 全局脚部导航栏开头 -->
+    <div id="myFooter" data-role="footer" data-position="fixed" data-theme="a" class="globalUI">
+        <div data-role="navbar" data-position="fixed" data-theme="a">
+            <ul>
+                <li>
+                    <a href="#page1" data-icon="audio">BGM</a>
+                </li>
+                <li>
+                    <a href="#page2" data-icon="grid">图片</a>
+                </li>
+                <li>
+                    <a href="#page3" data-icon="home">主页</a>
+                </li>
+                <li>
+                    <a href="#page4" data-icon="video">视频</a>
+                </li>
+                <li>
+                    <!-- 自定义的图标 -->
+                    <a href="#page5" class="ui-btn ui-btn-icon-top ui-icon-myicon">CXK</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 全局脚部导航栏结尾 -->
+
+    <!-- 左侧边面板开头 -->
+    <div id="myPanel1" data-role="panel" data-theme="a" class="globalUI">
+        <h2>版权信息</h2>
+        <p>版权所有 2020 张三工作室。</p>
+    </div>
+    <!-- 左侧边面板结尾 -->
+
+    <!-- 全局图片弹窗开始 -->
+    <div data-role="popup" id="myImgPopup">
+        <a data-rel="back"
+            class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <img id="popupWinImg" src="#">
+    </div>
+    <!-- 全局图片弹窗结尾 -->
+
+    <!-- Splash页开始 -->
+    <div data-role="page" data-fullscreen="true" id="page0" class="mySplash">
+
+        <div data-role="main" class="ui-content">
+
+            <button id="skipButton" data-role="button" data-inline="true">跳过 <span id="mySecond"></span></button>
+
+        </div>
+
+    </div>
+    <!-- Splash页结束 -->
+
+    <!-- page1开头 -->
+    <div data-role="page" id="page1">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+
+            <img src="p1.gif">
+
+            <audio controls loop>
+                <source src="music1.mp3" type="audio/mpeg">
+            </audio>
+
+            <br>
+
+            <audio controls loop>
+                <source src="music2.mp3" type="audio/mpeg">
+            </audio>
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page1结尾 -->
+
+    <!-- page2开头 -->
+    <div data-role="page" id="page2">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+
+            <img src="p2.gif">
+
+            <!-- 以下是图片幻灯 -->
+            <p>
+                <img id="myImg" src="#">
+                <div id="myText"></div>
+            </p>
+
+            <p>
+                <button id="changeImage" class="ui-btn ui-btn-icon-left ui-icon-arrow-r">切换图片</button>
+            </p>
+            <!-- 以上是图片幻灯 -->
+
+            <!-- 以下是子页面 -->
+            <div data-role="tabs" id="myTabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#tab1" data-ajax="false">子页1标题</a></li>
+                        <li><a href="#tab2" data-ajax="false">子页2标题</a></li>
+                        <li><a href="#tab3" data-ajax="false">子页3标题</a></li>
+                    </ul>
+                </div>
+                <div id="tab1">
+                    <img src="s1.jpg">
+                </div>
+                <div id="tab2">
+                    <img src="s2.jpg">
+                </div>
+                <div id="tab3">
+                    <img src="s3.jpg">
+                </div>
+            </div>
+            <!-- 以上是子页面 -->
+
+            <!-- 以下是分列网格布局 -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <!-- 所有要点小图弹窗显示大图的图片都要加popupImg类 -->
+                    <img src="s1.jpg" class="popupImg">
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow">第一列按钮</a><br>
+                    <span>第一列文本。</span>
+                </div>
+                <div class="ui-block-b">
+                    <!-- 所有要点小图弹窗显示大图的图片都要加popupImg类 -->
+                    <img src="s2.jpg" class="popupImg">
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow">第二列按钮</a><br>
+                    <span>第二列文本。</span>
+                </div>
+                <div class="ui-block-c">
+                    <!-- 所有要点小图弹窗显示大图的图片都要加popupImg类 -->
+                    <img src="s3.jpg" class="popupImg">
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow">第三列按钮</a><br>
+                    <span>第三列文本。</span>
+                </div>
+            </div>
+            <!-- 以上是分列网格布局 -->
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page2结尾 -->
+
+    <!-- page3开头 -->
+    <div data-role="page" id="page3">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+
+            <img src="p3.jpg">
+
+            <center>
+                <p>炫酷炸裂APP。<br>
+                    快上车，没时间解释了。</p>
+            </center>
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page3结尾 -->
+
+    <!-- page4开头 -->
+    <div data-role="page" id="page4">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+
+            <img src="p4.gif">
+
+            <video controls>
+                <source src="movie1.mp4" type="video/mp4">
+            </video>
+
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page4结尾 -->
+
+    <!-- page5开头 -->
+    <div data-role="page" id="page5">
+
+        <!-- 主内容开头 -->
+        <div data-role="main" class="ui-content">
+            <img src="p5.gif">
+
+            <center>
+                <p>学号：20181170077<br>
+                    姓名：张三丰<br>
+                    学院：神秘学院<br>
+                    个人格言：我就是我，不一样的烟火。</p>
+            </center>
+        </div>
+        <!-- 主内容结尾 -->
+
+    </div>
+    <!-- page5结尾 -->
+
+</body>
+
+</html>

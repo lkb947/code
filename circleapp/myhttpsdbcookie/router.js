@@ -4,7 +4,9 @@ var router = express.Router();
 const bodyParser = require("body-parser")
 var cookieParser = require('cookie-parser');
 router.use(bodyParser.json())
-router.use(bodyParser.urlencoded({ extended: true }))
+router.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 router.use(expressSession({
     resave: false,
@@ -18,11 +20,14 @@ var cookieKey = 'myCookieKey';
 
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
+// 可能会修改，根据自己的要求来做
 const dbName = 'mydb';
 
 /* 首页路径 */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', {
+        title: 'Express'
+    });
 });
 
 router.post('/register', function (req, res) {
@@ -31,16 +36,19 @@ router.post('/register', function (req, res) {
 
     var postData = req.body.data;
 
-    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+    MongoClient.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, function (err, client) {
 
         console.log('数据库已连接');
-
+        //看是否错误
         if (err) {
             console.log(err)
         }
 
         var db = client.db(dbName);
-
+        //插入自己的信息
         db.collection("users").insertOne(postData, function (err, result) {
 
             if (err) {
@@ -68,7 +76,9 @@ router.post('/register', function (req, res) {
 });
 
 router.get('/r', function (req, res) {
-    const client = new MongoClient(url, { useUnifiedTopology: true });
+    const client = new MongoClient(url, {
+        useUnifiedTopology: true
+    });
 
     client.connect(function (err) {
         if (err) {
@@ -104,7 +114,10 @@ router.post('/u', function (req, res) {
     var queryCode = req.body.data.学号;
     var queryName = req.body.data.姓名;
 
-    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+    MongoClient.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, function (err, client) {
 
         console.log('数据库已连接');
 
@@ -114,7 +127,13 @@ router.post('/u', function (req, res) {
 
         var db = client.db(dbName);
 
-        db.collection("students").updateOne({ '学号': queryCode }, { $set: { '姓名': queryName } }, function (err, result) {
+        db.collection("students").updateOne({
+            '学号': queryCode
+        }, {
+            $set: {
+                '姓名': queryName
+            }
+        }, function (err, result) {
 
             if (err) {
                 console.log(err)
@@ -145,7 +164,10 @@ router.post('/d', function (req, res) {
 
     var queryCode = req.body.data.学号;
 
-    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+    MongoClient.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, function (err, client) {
 
         console.log('数据库已连接');
 
@@ -155,7 +177,9 @@ router.post('/d', function (req, res) {
 
         var db = client.db(dbName);
 
-        db.collection("students").deleteOne({ '学号': queryCode }, function (err, result) {
+        db.collection("students").deleteOne({
+            '学号': queryCode
+        }, function (err, result) {
 
             if (err) {
                 console.log(err)
@@ -189,7 +213,10 @@ router.post('/login', function (req, res) {
 
     if (req.body.用户名 && req.body.密码) {
 
-        MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+        MongoClient.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }, function (err, client) {
             console.log('数据库已连接');
 
             if (err) {
@@ -198,7 +225,10 @@ router.post('/login', function (req, res) {
 
             const db = client.db(dbName);
 
-            db.collection('users').findOne({ 'username': req.body.用户名, 'password': req.body.密码 }, function (err, data) {
+            db.collection('users').findOne({
+                'username': req.body.用户名,
+                'password': req.body.密码
+            }, function (err, data) {
                 if (err) {
                     console.log(err)
                 }
@@ -214,25 +244,33 @@ router.post('/login', function (req, res) {
                     req.session.loginUsername = req.body.用户名;
                     req.session.loginKey = cookieKey;
 
-                    res.cookie('login', 1, { maxAge: cookieExpir });
-                    res.cookie('loginUsername', req.body.用户名, { maxAge: cookieExpir });
-                    res.cookie('loginKey', cookieKey, { maxAge: cookieExpir });
+                    res.cookie('login', 1, {
+                        maxAge: cookieExpir
+                    });
+                    res.cookie('loginUsername', req.body.用户名, {
+                        maxAge: cookieExpir
+                    });
+                    res.cookie('loginKey', cookieKey, {
+                        maxAge: cookieExpir
+                    });
 
                     resLoginSuccess = 1;
-                }
-                else {
+                } else {
                     resLoginSuccess = 0;
                 }
 
-                res.send({ 'loginSuccess': resLoginSuccess });
+                res.send({
+                    'loginSuccess': resLoginSuccess
+                });
 
             });
 
         });
 
-    }
-    else {
-        res.send({ 'loginSuccess': resLoginSuccess });
+    } else {
+        res.send({
+            'loginSuccess': resLoginSuccess
+        });
     }
 
 });
@@ -251,12 +289,13 @@ router.post('/logout', function (req, res) {
         res.clearCookie('loginKey');
 
         resLogoutSuccess = 1;
-    }
-    else {
+    } else {
         resLogoutSuccess = 0;
     }
 
-    res.send({ 'logoutSuccess': resLogoutSuccess });
+    res.send({
+        'logoutSuccess': resLogoutSuccess
+    });
 });
 
 
