@@ -21,7 +21,7 @@ var cookieKey = 'myCookieKey';
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 // 可能会修改，根据自己的要求来做
-const dbName = 'mydb';
+const dbName = 'myapp';
 
 /* 首页路径 */
 router.get('/', function (req, res) {

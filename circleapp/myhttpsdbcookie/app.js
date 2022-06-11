@@ -5,7 +5,7 @@ var routes = require('./router.js');
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'www')));
+app.use(express.static(path.join(__dirname, 'kbl_pc')));
 
 app.use('/', routes);
 

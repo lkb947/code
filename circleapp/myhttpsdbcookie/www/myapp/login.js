@@ -71,7 +71,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: '../logout' + '?time=' + new Date().getTime(),
+            url: '../../logout' + '?time=' + new Date().getTime(),
             data: submitJSON,
             success: function (returnData, textStatus) {
                 if (returnData.logoutSuccess == 1) {
@@ -84,6 +84,4 @@ $(document).ready(function () {
 
     });
     /* 以上为点击注销按钮的事件函数 */
-
-    /* 以下是页面加载的主函数，不能修改。 */
 });
