@@ -4,22 +4,22 @@ $(document).ready(function () {
     // 百度地图API功能
     var map = new BMap.Map("myMap");
 
-    // 终点
+    // 终点  云南大学呈贡校区图书馆经纬度
     var p2 = new BMap.Point(102.855394, 24.830453);
     map.centerAndZoom(p2, 11);
-    map.enableScrollWheelZoom(true); 
+    map.enableScrollWheelZoom(true);
 
-    var marker = new BMap.Marker(p2);  // 创建标注
-    map.addOverlay(marker);              // 将标注添加到地图中
+    var marker = new BMap.Marker(p2); // 创建标注
+    map.addOverlay(marker); // 将标注添加到地图中
     map.centerAndZoom(p2, 12);
     var opts = {
-        width: 200,     // 信息窗口宽度
-        height: 100,     // 信息窗口高度
+        width: 200, // 信息窗口宽度
+        height: 100, // 信息窗口高度
         title: "云南大学（呈贡校区)- 图书馆", // 信息窗口标题
-        enableMessage: true,//设置允许信息窗发送短息
+        enableMessage: true, //设置允许信息窗发送短息
         message: ""
     }
-    var infoWindow = new BMap.InfoWindow("快来图书馆学习吧！", opts);  // 创建信息窗口对象 
+    var infoWindow = new BMap.InfoWindow("快来图书馆学习吧！", opts); // 创建信息窗口对象 
     map.openInfoWindow(infoWindow, p2); //开启信息窗口
 
     $("#myNavButton").click(function () {
@@ -45,13 +45,19 @@ $(document).ready(function () {
                 var p1 = new BMap.Point(r.point.lng, r.point.lat);
 
                 // 导航路径
-                var driving = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+                var driving = new BMap.DrivingRoute(map, {
+                    renderOptions: {
+                        map: map,
+                        autoViewport: true
+                    }
+                });
                 driving.search(p1, p2);
-            }
-            else {
+            } else {
                 $("#myInfo").text('定位失败' + this.getStatus());
             }
-        }, { enableHighAccuracy: true })
+        }, {
+            enableHighAccuracy: true
+        })
 
         /* 以下是页面加载的主函数，不能修改。 */
 

@@ -17,7 +17,6 @@ $(document).ready(function () {
         /*没有登录转到登录页*/
         $.mobile.changePage("#page");
     }
-
     /* 禁止H5的提交按钮 */
     $(document).find('form').submit(function () {
         return false;
@@ -25,16 +24,12 @@ $(document).ready(function () {
 
     /* 以下为点击登录按钮的事件函数 */
     $('#myButton1').click(function () {
-        $('#myText1').text('');
-
         var myUsername = $("#myInput1").val();
         var myPassword = $("#myInput2").val();
-
         var submitJSON = {
             "用户名": myUsername,
             "密码": myPassword
         };
-
         $.ajax({
             type: "POST",
             /* AJAX 方法*/
@@ -60,10 +55,8 @@ $(document).ready(function () {
                 console.log('错误：网络故障。');
             },
         });
-
     });
     /* 以上为点击登录按钮的事件函数 */
-
     /* 以下为点击注销按钮的事件函数 */
     $('#myButton2').click(function () {
         var submitJSON = {
@@ -83,6 +76,7 @@ $(document).ready(function () {
                 }
             }
         });
+        $('#myText1').text('');
 
     });
     /* 以上为点击注销按钮的事件函数 */
@@ -93,7 +87,10 @@ $(document).ready(function () {
 
         var userName = $("#myInput1").val();
         var userWord = $("#myInput2").val();
-
+        if (userName == '' || userWord == '') {
+            $('#myText1').text('用户名和密码不能为空');
+            return;
+        }
         var submitJSON = {
             "username": userName,
             "password": userWord
@@ -115,8 +112,8 @@ $(document).ready(function () {
                 $('#myText1').text('注册成功。');
                 $.mobile.changePage("#page3");
 
-
-                $("#myText1").text(JSON.stringify(returnData));
+                //不用打印数据，因为服务器已经打印了。
+                // $("#myText1").text(JSON.stringify(returnData));
                 $("#myText2").text(returnData[0].password);
             },
             error: function () {

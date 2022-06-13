@@ -15,12 +15,10 @@ $(document).ready(function () {
         $(function () {
             $("[data-role='navbar']").navbar();
             $("[data-role='header']").toolbar();
-            $("[data-role='footer']").toolbar(
-                {
-                    fullscreen: false,
-                    tapToggle: false
-                }
-            );
+            $("[data-role='footer']").toolbar({
+                fullscreen: false,
+                tapToggle: false
+            });
             $("[data-role='panel']").panel();
 
             /* 全局的图片弹窗 */
@@ -39,8 +37,7 @@ $(document).ready(function () {
 
         if (myCounter > 0) {
             myCounter--;
-        }
-        else {
+        } else {
             $.mobile.changePage("#page6");
             mySplashPageTimer.stop();
             loadGlobalUI();
@@ -72,8 +69,7 @@ $(document).ready(function () {
         if (i < myImages.length) {
             $('#myImg').attr('src', myImages[i]);
             $('#myText').html(myTexts[i]);
-        }
-        else {
+        } else {
             i = 0;
             $('#myImg').attr('src', myImages[i]);
             $('#myText').html(myTexts[i]);

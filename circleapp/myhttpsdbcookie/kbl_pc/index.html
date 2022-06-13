@@ -29,7 +29,7 @@
     <script src="alarm.js"></script>
 
     <!-- 引入百度地图API，ak是开发者账号里创建GPS应用后生成的密钥。 -->
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=pKCdGpIS6DVtPyRjp7tWS4QhUvgohwtm">
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=WwmfYMqXzLTqGFbZeE1hzsT64mDd57ci">
     </script>
     <!-- 自己的CSS -->
     <link rel="stylesheet" href="map.css">
@@ -99,7 +99,6 @@
         <img id="popupWinImg" src="#">
     </div>
     <!-- 全局图片弹窗结尾 -->
-
     <!-- Splash页开始 -->
     <div data-role="page" data-fullscreen="true" id="page0" class="mySplash">
         <div data-role="main" class="ui-content">
@@ -107,18 +106,13 @@
         </div>
     </div>
     <!-- Splash页结束 -->
-
     <!-- page1开头 -->
     <div data-role="page" id="page1" class="ui-panel-wrapper0">
         <!-- 主内容开头 -->
-
-
-
         <div data-role="main" class="ui-content">
             <button id="myNavButton">导航</button>
             <div id="myMap"></div>
             <div id="myInfo"></div>
-
             <!-- <div id="myInfo"></div> -->
         </div>
         <!-- 主内容结尾 -->
@@ -422,14 +416,13 @@
     <div data-role="page" id="page6" class="ui-panel-wrapper0">
         <!--主要内容开头-->
         <div data-role="main" class="ui-content">
-            <div id="myText1"></div>
             <form id="myForm1">
                 <label for="用户名">用户名：</label>
                 <input id="myInput1" type="text" name="用户名">
                 <!--hexinjue-->
                 <label for="密码">密码：</label>
                 <input id="myInput2" type="password" name="密码">
-                <!--20181120063-->
+                <div id="myText1" style="color: red;"></div>
                 <div style="text-align:center">
                     <input id="myButton1" type="submit" data-inline="true" value="登录">
                     <input id="myButton4" type="submit" data-inline="true" value="注册">
