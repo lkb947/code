@@ -1,6 +1,5 @@
 $(document).ready(function () {
     /* 以上是页面加载的主函数，不能修改。 */
-
     /* 以下为点击AJAX按钮的事件函数 */
     $('#myButton3').click(function () {
         $.ajax({
@@ -45,5 +44,48 @@ $(document).ready(function () {
     });
     /* 以上为点击AJAX按钮的事件函数 */
 
-    /* 以下是页面加载的主函数，不能修改。 */
+    //录入成绩
+    $('#myButton5').click(function () {
+        $('#myText10').text('');
+
+        var kecheng = $("#myInputl1").val();
+        var xuefen = $("#myInputl2").val();
+        var chengji = $("#myInputl3").val();
+        var jidian = $("#myInputl4").val();
+        if (kecheng == '' || xuefen == '' || chengji == '' || jidian == '') {
+            $('#myText10').text('课程名称、学分、成绩和绩点都不能为空');
+            return;
+        }
+        var submitJSON = {
+            "课程名称": kecheng,
+            "学分": xuefen,
+            "成绩": chengji,
+            "绩点": jidian
+        };
+        $.ajax({
+            type: "POST",
+            /* AJAX 方法*/
+            dataType: "json",
+            /* 数据格式 */
+            url: '../grades' + '?time=' + new Date().getTime(),
+            /* 服务端网址 */
+            data: {
+                'data': submitJSON
+            },
+            success: function (returnData, returnStatus) {
+                /* 服务器返回数据成功 */
+                // console.log(returnData);
+                $('#myText10').text('成功录入成绩');
+            },
+            error: function () {
+                /* 服务器返回数据失败 */
+                console.log('错误：网络故障。');
+            },
+        });
+        // $('#myText1').text('');
+        $('#myInputl1').val('');
+        $('#myInputl2').val('');
+        $('#myInputl3').val('');
+        $('#myInputl4').val('');
+    });
 });

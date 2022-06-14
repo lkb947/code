@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- APP标题，必须修改。 -->
-    <title>Circle课表</title>
+    <title>Little Tools</title>
     <!-- 以下是标准库，不能修改。 -->
     <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -56,7 +56,7 @@
     <!-- 全局头部工具栏开头 -->
     <div id="myHeader" data-role="header" data-position="fixed" data-theme="a" class="globalUI">
         <a href="#myPanel1" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-notext">信息</a>
-        <h1>Circlr</h1>
+        <h1>Little Tools</h1>
         <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-notext">课表</a>
     </div>
     <!-- 全局头部工具栏结尾 -->
@@ -78,7 +78,7 @@
                     <a href="#page4" class="ui-btn ui-btn-icon-top ui-icon-myicon4">GPA</a>
                 </li>
                 <li>
-                    <a href="#page5" class="ui-btn ui-btn-icon-top ui-icon-myicon5">我</a>
+                    <a href="#page5" class="ui-btn ui-btn-icon-top ui-icon-myicon5">360全景</a>
                 </li>
             </ul>
         </div>
@@ -365,9 +365,21 @@
                 <tbody>
                 </tbody>
             </table>
-
             <button id="myButton3">获取成绩</button>
-
+            <form id="myForm10">
+                <label for="课程名称">课程名称：</label>
+                <input id="myInputl1" type="text" name="课程名称">
+                <label for="学分">学分：</label>
+                <input id="myInputl2" type="text" name="学分">
+                <label for="成绩">成绩：</label>
+                <input id="myInputl3" type="text" name="成绩">
+                <label for="绩点">绩点：</label>
+                <input id="myInputl4" type="text" name="绩点">
+                <div id="myText10" style="color: red;"></div>
+                <div style="text-align:center">
+                    <input id="myButton5" type="submit" data-inline="true" value="录入成绩">
+                </div>
+            </form>
         </div>
         <!-- 主内容结尾 -->
 
@@ -387,51 +399,6 @@
             </div>
         </div>
         <script type="text/javascript" src="panorama.js"></script>
-        <!-- 主内容开头 -->
-        <!-- <div>
-            <br />
-            <div data-role="main" class="passage5-div1">
-                <img src="picture/头像.jpg" />
-            </div>
-
-            <br><br><br><br><br><br />
-            <h2 style="text-align:center">个人信息</h2>
-
-            <div class="dowebok">
-                学号：
-                <input type="text" id="学号" value="20191120167">
-                <span>姓名：</span>
-                <input type="text" id="姓名" value="李克波" style="width:20%">
-                <span>学院：</span>
-                <input type="text" id="学院" value="软件学院">
-                <span>专业：</span>
-                <input type="text" id="专业" value="软件工程">
-                <span>个性签名：</span>
-                <input type="text" id="个性签名" value="╰( ´・ω・)つ──☆✿✿✿">
-                <span>♥兴趣爱好：</span>
-                <input type="text" id="兴趣爱好" value="打羽毛球，峡谷抢河怪">
-                <br>
-            </div>
-
-            <h2 style="text-align:center">我的学习动态</h2>
-            <br>
-            <video controls>
-                <source src="影音/1.mp4" type="video/mp4">
-                <br>
-            </video>
-            <br><br> -->
-
-        <!-- <div class="passage5-div-image">
-                <img src="picture/底部兔子.png" />
-
-                <div class="passage5-div-buttom1">
-                    <button id="myButton2">注销</button>
-                </div>
-
-            </div>
-            主内容结尾 -->
-        <!-- </div> -->
-        <!-- page5结尾 -->
     </div>
     <!--page6开头-->
     <div data-role="page" id="page6" class="ui-panel-wrapper0">
@@ -440,7 +407,6 @@
             <form id="myForm1">
                 <label for="用户名">用户名：</label>
                 <input id="myInput1" type="text" name="用户名">
-                <!--hexinjue-->
                 <label for="密码">密码：</label>
                 <input id="myInput2" type="password" name="密码">
                 <div id="myText1" style="color: red;"></div>

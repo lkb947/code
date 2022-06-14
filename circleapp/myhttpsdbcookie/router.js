@@ -106,6 +106,52 @@ router.get('/r', function (req, res) {
     });
 
 });
+//录入成绩路由
+router.post('/grades', function (req, res) {
+
+    // console.log(req.body);
+
+    var postData = req.body.data;
+
+    MongoClient.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, function (err, client) {
+
+        console.log('数据库已连接');
+        //看是否错误
+        if (err) {
+            console.log(err)
+        }
+
+        var db = client.db(dbName);
+        //插入自己的信息
+        db.collection("grades").insertOne(postData, function (err, result) {
+
+            if (err) {
+                console.log(err)
+            }
+            // 查询所有数据
+            db.collection("grades").find({}).toArray(function (err, data) {
+                if (err) {
+                    console.log(err)
+                }
+
+                client.close();
+                console.log('数据库已关闭');
+
+                console.log(data);
+                res.send(data);
+            });
+
+        });
+
+    });
+
+});
+
+
+//以下路由暂时未用到
 
 router.post('/u', function (req, res) {
 
