@@ -39,6 +39,16 @@
     <!--登录注销-->
     <script src="login.js"></script>
 
+    <!-- 全景图 -->
+    <link rel="stylesheet" href="panorama.css" />
+    <script type="text/javascript" src="three.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            startPanorama('./picture/image.jpg');
+        });
+    </script>
+
 </head>
 
 <body>
@@ -366,9 +376,19 @@
 
     <!-- page5开头 -->
     <div data-role="page" id="page5" class="ui-panel-wrapper1">
+        <div id="app-view"></div>
+        <div id="no-sensors">no sensors.</div>
+        <!-- 退出登录 -->
+        <div class="passage5-div-image">
+            <img src="picture/底部兔子.png" />
 
+            <div class="passage5-div-buttom1">
+                <button id="myButton2">注销</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="panorama.js"></script>
         <!-- 主内容开头 -->
-        <div>
+        <!-- <div>
             <br />
             <div data-role="main" class="passage5-div1">
                 <img src="picture/头像.jpg" />
@@ -399,8 +419,9 @@
                 <source src="影音/1.mp4" type="video/mp4">
                 <br>
             </video>
-            <br><br>
-            <div class="passage5-div-image">
+            <br><br> -->
+
+        <!-- <div class="passage5-div-image">
                 <img src="picture/底部兔子.png" />
 
                 <div class="passage5-div-buttom1">
@@ -408,8 +429,8 @@
                 </div>
 
             </div>
-            <!-- 主内容结尾 -->
-        </div>
+            主内容结尾 -->
+        <!-- </div> -->
         <!-- page5结尾 -->
     </div>
     <!--page6开头-->

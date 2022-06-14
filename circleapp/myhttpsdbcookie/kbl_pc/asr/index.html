@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>百度语音识别</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="240" />
+    <meta name="PalmComputingPlatform" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 标准库 -->
+    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- 当前页面的库 -->
+    <script src="md5.min.js"></script>
+    <script src="WebRTCCommon.js"></script>
+    <script src="RecordRTC.js"></script>
+    <!-- 当前页面的JS -->
+    <script type="text/javascript" src="baiduasr.js"></script>
+
+</head>
+
+<body>
+    <button id="btn-start-recording">开始说话</button>
+    <button id="btn-stop-recording" disabled>停止说话</button>
+
+
+    <label for="voiceText">识别结果:</label>
+    <textarea id="voiceText"></textarea>
+
+
+    <audio id="recorderAudio" controls playsinline></audio>
+
+
+</body>
+
+</html>

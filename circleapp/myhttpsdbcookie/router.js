@@ -88,7 +88,7 @@ router.get('/r', function (req, res) {
         const db = client.db(dbName);
         console.log('数据库已连接');
 
-        const collection = db.collection('students');
+        const collection = db.collection('grades');
 
         // 查询所有数据
         collection.find({}).toArray(function (err, data) {
@@ -127,7 +127,7 @@ router.post('/u', function (req, res) {
 
         var db = client.db(dbName);
 
-        db.collection("students").updateOne({
+        db.collection("users").updateOne({
             '学号': queryCode
         }, {
             $set: {

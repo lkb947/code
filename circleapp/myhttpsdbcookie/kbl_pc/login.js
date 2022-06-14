@@ -77,6 +77,8 @@ $(document).ready(function () {
             }
         });
         $('#myText1').text('');
+        $('#myInput1').val('');
+        $('#myInput2').val('');
 
     });
     /* 以上为点击注销按钮的事件函数 */

@@ -4,9 +4,12 @@ $(document).ready(function () {
     /* 以下为点击AJAX按钮的事件函数 */
     $('#myButton3').click(function () {
         $.ajax({
-            type: "GET", /* AJAX 方法*/
-            dataType: "json", /* 数据格式 */
-            url: '../r' + '?_=' + new Date().getTime(), /* API网址 */
+            type: "GET",
+            /* AJAX 方法*/
+            dataType: "json",
+            /* 数据格式 */
+            url: '../r' + '?_=' + new Date().getTime(),
+            /* API网址 */
             success: function (returnData, returnStatus) {
                 console.log(returnData);
                 /* 服务器成功返回数据 */

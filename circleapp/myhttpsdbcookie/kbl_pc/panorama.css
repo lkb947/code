@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+}
+
+canvas {
+    display: block;
+    /* prevents scrollbar */
+    width: 100vw;
+    height: 100vh;
+}
+
+#no-sensors {
+    color: white;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    display: none;
+    /* Hidden by default */
+    z-index: 2;
+}
